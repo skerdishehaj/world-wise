@@ -6,6 +6,8 @@ import PageNotFound from './pages/PageNotFound';
 import AppLayout from './pages/AppLayout';
 import Login from './pages/Login';
 import CityList from './components/City/CityList';
+import City from './components/City/City';
+import Form from './components/Form/Form';
 import { useEffect, useState } from 'react';
 import CountryList from './components/Country/CountryList';
 
@@ -74,12 +76,16 @@ function App() {
             }
           />
           <Route
+            path='cities/:id'
+            element={<City />}
+          />
+          <Route
             path='countries'
             element={<CountryList cities={cities} />}
           />
           <Route
             path='form'
-            element={<p>Form</p>}
+            element={<Form />}
           />
         </Route>
 

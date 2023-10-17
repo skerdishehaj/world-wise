@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Pricing from './pages/Pricing';
 import Product from './pages/Product';
 import Homepage from './pages/Homepage';
@@ -59,12 +59,8 @@ function App() {
         >
           <Route
             index
-            element={
-              <CityList
-                cities={cities}
-                isLoading={isLoading}
-              />
-            }
+            element={<Navigate to='cities' />}
+            replace // replace the current entry in the history stack; User can now return to the homepage by clicking the back button
           />
           <Route
             path='cities'

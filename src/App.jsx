@@ -8,89 +8,66 @@ import Login from './pages/Login';
 import CityList from './components/City/CityList';
 import City from './components/City/City';
 import Form from './components/Form/Form';
-import { useEffect, useState } from 'react';
 import CountryList from './components/Country/CountryList';
-
-const BASE_URL = 'http://localhost:5000';
+import { CitiesProvider } from './contexts/CitiesContext';
 
 function App() {
-  const [cities, setCities] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  useEffect(() => {
-    const fetchCities = async () => {
-      setIsLoading(true);
-      try {
-        const response = await fetch(`${BASE_URL}/cities`);
-        const cities = await response.json();
-        setCities(cities);
-        console.table(cities);
-        setIsLoading(false);
-      } catch (error) {
-        alert(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchCities();
-  }, []);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          index
-          element={<Homepage />}
-        />
-        <Route
-          path='product'
-          element={<Product />}
-        />
-        <Route
-          path='pricing'
-          element={<Pricing />}
-        />
-        <Route
-          path='login'
-          element={<Login />}
-        />
-
-        <Route
-          path='app'
-          element={<AppLayout />}
-        >
+    <CitiesProvider>
+      <BrowserRouter>
+        <Routes>
           <Route
             index
-            element={<Navigate to='cities' />}
-            replace // replace the current entry in the history stack; User can now return to the homepage by clicking the back button
+            element={<Homepage />}
           />
           <Route
-            path='cities'
-            element={
-              <CityList
-                cities={cities}
-                isLoading={isLoading}
-              />
-            }
+            path='product'
+            element={<Product />}
           />
           <Route
-            path='cities/:id'
-            element={<City />}
+            path='pricing'
+            element={<Pricing />}
           />
           <Route
-            path='countries'
-            element={<CountryList cities={cities} />}
+            path='login'
+            element={<Login />}
           />
-          <Route
-            path='form'
-            element={<Form />}
-          />
-        </Route>
 
-        <Route
-          path='*'
-          element={<PageNotFound />}
-        />
-      </Routes>
-    </BrowserRouter>
+          <Route
+            path='app'
+            element={<AppLayout />}
+          >
+            <Route
+              index
+              element={<Navigate to='cities' />}
+              replace // !replace the current entry in the history stack with the new one;
+              // ! User can now return to the homepage by clicking the back button
+            />
+            <Route
+              path='cities'
+              element={<CityList />}
+            />
+            <Route
+              path='cities/:id'
+              element={<City />}
+            />
+            <Route
+              path='countries'
+              element={<CountryList />}
+            />
+            <Route
+              path='form'
+              element={<Form />}
+            />
+          </Route>
+
+          <Route
+            path='*'
+            element={<PageNotFound />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </CitiesProvider>
   );
 }
 

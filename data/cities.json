@@ -49,18 +49,6 @@
       "id": 98443198
     },
     {
-      "cityName": "Terni",
-      "country": "Italy",
-      "emoji": "🇮🇹",
-      "date": "2023-10-21T22:53:14.811Z",
-      "notes": "Nicee!!",
-      "position": {
-        "lat": "42.56926437219384",
-        "lng": "12.744140625000002"
-      },
-      "id": 98443199
-    },
-    {
       "cityName": "Vienna",
       "country": "Austria",
       "emoji": "🇦🇹",
@@ -83,30 +71,6 @@
         "lng": "9.42626953125"
       },
       "id": 98443201
-    },
-    {
-      "cityName": "Creteil",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "2023-10-21T22:56:44.868Z",
-      "notes": "",
-      "position": {
-        "lat": "48.79239019646409",
-        "lng": "2.4609375000000004"
-      },
-      "id": 98443202
-    },
-    {
-      "cityName": "Syktyvkar",
-      "country": "Russian Federation (the)",
-      "emoji": "🇷🇺",
-      "date": "2023-10-21T23:01:58.826Z",
-      "notes": "",
-      "position": {
-        "lat": "61.64816245852389",
-        "lng": "50.833740234375"
-      },
-      "id": 98443203
     }
   ]
 }

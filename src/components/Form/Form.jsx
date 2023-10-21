@@ -48,7 +48,6 @@ function Form() {
       notes,
       position: { lat, lng },
     };
-    console.log(newTrip);
     await createCity(newTrip);
     navigate('/app');
   };
@@ -65,7 +64,6 @@ function Form() {
           `${BASE_URL}?latitude=${lat}&longitude=${lng}`,
         );
         const data = await response.json();
-        console.table(data);
         setCityName(
           data.city || data.locality || data.principalSubdivision || '',
         );

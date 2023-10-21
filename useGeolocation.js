@@ -44,7 +44,6 @@ export default function App() {
 
   function handleClick() {
     setCountClicks((count) => count + 1);
-    console.dir(getPosition);
     getPosition();
   }
 

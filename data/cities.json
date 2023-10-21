@@ -1,30 +1,6 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": 73930385
-    },
-    {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": 17806751
-    },
-    {
       "cityName": "Berlin",
       "country": "Germany",
       "emoji": "🇩🇪",
@@ -35,18 +11,6 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
-    },
-    {
-      "cityName": "Tirana",
-      "country": "Albania",
-      "emoji": "🇦🇱",
-      "date": "2023-10-21T22:46:36.219Z",
-      "notes": "Super Trip!!",
-      "position": {
-        "lat": "41.244772343082076",
-        "lng": "19.819335937500004"
-      },
-      "id": 98443198
     },
     {
       "cityName": "Vienna",
@@ -71,6 +35,42 @@
         "lng": "9.42626953125"
       },
       "id": 98443201
+    },
+    {
+      "cityName": "Tirana",
+      "country": "Albania",
+      "emoji": "🇦🇱",
+      "date": "2023-10-21T23:38:46.019Z",
+      "notes": "",
+      "position": {
+        "lat": "41.29431726315258",
+        "lng": "19.863281250000004"
+      },
+      "id": 98443202
+    },
+    {
+      "cityName": "Bashkia Mallakaster",
+      "country": "Albania",
+      "emoji": "🇦🇱",
+      "date": "2023-10-21T23:39:13.721Z",
+      "notes": "",
+      "position": {
+        "lat": "40.59916057945895",
+        "lng": "19.73599433898926"
+      },
+      "id": 98443203
+    },
+    {
+      "cityName": "Lukavica",
+      "country": "Bosnia and Herzegovina",
+      "emoji": "🇧🇦",
+      "date": "2023-10-21T23:40:16.858Z",
+      "notes": "",
+      "position": {
+        "lat": "43.81867485545323",
+        "lng": "18.424072265625004"
+      },
+      "id": 98443204
     }
   ]
 }

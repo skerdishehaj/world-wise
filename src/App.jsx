@@ -11,6 +11,7 @@ import Form from './components/Form/Form';
 import CountryList from './components/Country/CountryList';
 import { AuthProvider } from './contexts/FakeAuthContext';
 import { CitiesProvider } from './contexts/CitiesContext';
+import ProtectedRoute from './pages/ProtectedRoute';
 
 function App() {
   return (
@@ -37,12 +38,21 @@ function App() {
 
             <Route
               path='app'
-              element={<AppLayout />}
+              element={
+                <ProtectedRoute>
+                  <AppLayout />
+                </ProtectedRoute>
+              }
             >
               <Route
                 index
-                element={<Navigate to='cities' />}
-                replace // !replace the current entry in the history stack with the new one;
+                element={
+                  <Navigate
+                    replace
+                    to='cities'
+                  />
+                }
+                // !replace the current entry in the history stack with the new one;
                 // ! User can now return to the homepage by clicking the back button
               />
               <Route

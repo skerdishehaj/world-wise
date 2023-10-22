@@ -49,18 +49,6 @@
       "id": 98443202
     },
     {
-      "cityName": "Bashkia Mallakaster",
-      "country": "Albania",
-      "emoji": "🇦🇱",
-      "date": "2023-10-21T23:39:13.721Z",
-      "notes": "",
-      "position": {
-        "lat": "40.59916057945895",
-        "lng": "19.73599433898926"
-      },
-      "id": 98443203
-    },
-    {
       "cityName": "Lukavica",
       "country": "Bosnia and Herzegovina",
       "emoji": "🇧🇦",
@@ -71,6 +59,30 @@
         "lng": "18.424072265625004"
       },
       "id": 98443204
+    },
+    {
+      "cityName": "Corfu",
+      "country": "Greece",
+      "emoji": "🇬🇷",
+      "date": "2023-10-22T08:57:11.027Z",
+      "notes": "",
+      "position": {
+        "lat": "39.592990390285024",
+        "lng": "19.9237060546875"
+      },
+      "id": 98443205
+    },
+    {
+      "cityName": "Malta",
+      "country": "Malta",
+      "emoji": "🇲🇹",
+      "date": "2023-10-22T08:57:22.291Z",
+      "notes": "",
+      "position": {
+        "lat": "35.889050079360935",
+        "lng": "14.304199218750002"
+      },
+      "id": 98443206
     }
   ]
 }

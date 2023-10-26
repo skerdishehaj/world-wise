@@ -42,7 +42,6 @@ const AuthProvider = ({ children }) => {
   );
 
   const login = (email, password) => {
-    console.log('logging in');
     if (email === FAKE_USER.email && password === FAKE_USER.password) {
       dispatch({
         type: auth.LOGIN,

@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useReducer } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useReducer,
+} from 'react';
 
 // ! Base URL for the API
 const BASE_URL = 'http://localhost:5000';
@@ -87,21 +93,23 @@ const CitiesProvider = ({ children }) => {
   }, []);
 
   // ! Get a single city
-  const getCity = async (id) => {
-    if (+id === currentCity.id) return;
-    console.log(+id === currentCity.id);
-    dispatch({ type: 'loading' });
-    try {
-      const response = await fetch(`${BASE_URL}/cities/${id}`);
-      const data = await response.json();
-      dispatch({ type: 'city/loaded', payload: data });
-    } catch (error) {
-      dispatch({
-        type: 'rejected',
-        payload: `Something went wrong getting the city: ${id}.`,
-      });
-    }
-  };
+  const getCity = useCallback(
+    async (id) => {
+      if (+id === currentCity.id) return;
+      dispatch({ type: 'loading' });
+      try {
+        const response = await fetch(`${BASE_URL}/cities/${id}`);
+        const data = await response.json();
+        dispatch({ type: 'city/loaded', payload: data });
+      } catch (error) {
+        dispatch({
+          type: 'rejected',
+          payload: `Something went wrong getting the city: ${id}.`,
+        });
+      }
+    },
+    [currentCity.id],
+  );
 
   // ! Delete a city
   const deleteCity = async (id) => {

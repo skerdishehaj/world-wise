@@ -1,5 +1,5 @@
-import { useNavigate } from 'react-router-dom';
-import styles from './Map.module.css';
+import { useNavigate } from "react-router-dom";
+import styles from "./Map.module.css";
 import {
   MapContainer,
   Marker,
@@ -7,12 +7,12 @@ import {
   TileLayer,
   useMap,
   useMapEvents,
-} from 'react-leaflet';
-import { useCities } from '../../contexts/CitiesContext';
-import { useEffect, useState } from 'react';
-import { useGeolocation } from '../../hooks/useGeolocation';
-import { useURLPosition } from '../../hooks/useURLPosition';
-import Button from '../Button';
+} from "react-leaflet";
+import { useCities } from "../../contexts/CitiesContext";
+import { useEffect, useState } from "react";
+import { useGeolocation } from "../../hooks/useGeolocation";
+import { useURLPosition } from "../../hooks/useURLPosition";
+import Button from "../Button";
 
 function Map() {
   const navigate = useNavigate();
@@ -38,20 +38,14 @@ function Map() {
   return (
     <div className={styles.mapContainer}>
       {!geolocationPosition && (
-        <Button
-          type='position'
-          onClick={() => getPosition()}
-        >
-          {isLoadinfPosition ? 'Loading...' : 'USE YOUR POSITION'}
+        <Button type="position" onClick={() => getPosition()}>
+          {isLoadinfPosition ? "Loading..." : "USE YOUR POSITION"}
         </Button>
       )}
-      <MapContainer
-        className={styles.map}
-        scrollWheelZoom={true}
-      >
+      <MapContainer className={styles.map} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url='https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
+          url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
         {cities.map((city) => {
           return (

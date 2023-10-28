@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useReducer } from "react";
 
 const AuthContext = createContext();
 const initialState = {
@@ -6,14 +6,14 @@ const initialState = {
   isAuthenticated: false,
 };
 const FAKE_USER = {
-  name: 'Jack',
-  email: 'jack@example.com',
-  password: 'qwerty',
-  avatar: 'https://i.pravatar.cc/100?u=zz',
+  name: "Jack",
+  email: "jack@example.com",
+  password: "qwerty",
+  avatar: "https://i.pravatar.cc/100?u=zz",
 };
 const auth = Object.freeze({
-  LOGIN: 'login',
-  LOGOUT: 'logout',
+  LOGIN: "login",
+  LOGOUT: "logout",
 });
 
 const reducer = (state, action) => {
@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
         payload: FAKE_USER,
       });
     } else {
-      throw new Error('Invalid credentials');
+      throw new Error("Invalid credentials");
     }
   };
 
@@ -70,7 +70,7 @@ const AuthProvider = ({ children }) => {
 function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
 }

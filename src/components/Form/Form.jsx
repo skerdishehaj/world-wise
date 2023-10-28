@@ -1,23 +1,23 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import styles from './Form.module.css';
-import Button from '../Button';
-import BackButton from '../BackButton';
-import Message from '../Message';
-import Spinner from '../Spinner';
-import { useURLPosition } from '../../hooks/useURLPosition';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import { useCities } from '../../contexts/CitiesContext';
-import { useNavigate } from 'react-router-dom';
-const BASE_URL = 'https://api.bigdatacloud.net/data/reverse-geocode-client';
+import styles from "./Form.module.css";
+import Button from "../Button";
+import BackButton from "../BackButton";
+import Message from "../Message";
+import Spinner from "../Spinner";
+import { useURLPosition } from "../../hooks/useURLPosition";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useCities } from "../../contexts/CitiesContext";
+import { useNavigate } from "react-router-dom";
+const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
     .toUpperCase()
-    .split('')
+    .split("")
     .map((char) => 127397 + char.charCodeAt());
   return String.fromCodePoint(...codePoints);
 }
@@ -27,13 +27,13 @@ function Form() {
   const { createCity, isLoading } = useCities();
   const navigate = useNavigate();
 
-  const [cityName, setCityName] = useState('');
-  const [country, setCountry] = useState('');
+  const [cityName, setCityName] = useState("");
+  const [country, setCountry] = useState("");
   const [date, setDate] = useState(new Date());
-  const [notes, setNotes] = useState('');
+  const [notes, setNotes] = useState("");
   const [emoji, setEmoji] = useState(null);
   const [isLoadinGeocoding, setIsLoadingGeocoding] = useState(false);
-  const [geocodingError, setGeocodingError] = useState('');
+  const [geocodingError, setGeocodingError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,7 +49,7 @@ function Form() {
       position: { lat, lng },
     };
     await createCity(newTrip);
-    navigate('/app');
+    navigate("/app");
   };
 
   useEffect(() => {
@@ -58,26 +58,26 @@ function Form() {
         return;
       }
       try {
-        setGeocodingError('');
+        setGeocodingError("");
         setIsLoadingGeocoding(true);
         const response = await fetch(
           `${BASE_URL}?latitude=${lat}&longitude=${lng}`,
         );
         const data = await response.json();
         setCityName(
-          data.city || data.locality || data.principalSubdivision || '',
+          data.city || data.locality || data.principalSubdivision || "",
         );
 
         if (!data.countryCode) {
           throw new Error(
-            'There does not seem to be a city. Click somewhere else 😉',
+            "There does not seem to be a city. Click somewhere else 😉",
           );
         }
 
-        setCountry(data.countryName || '');
-        setEmoji(convertToEmoji(data.countryCode || ''));
+        setCountry(data.countryName || "");
+        setEmoji(convertToEmoji(data.countryCode || ""));
         setIsLoadingGeocoding(false);
-        setGeocodingError('');
+        setGeocodingError("");
       } catch (error) {
         setGeocodingError(error.message);
       } finally {
@@ -92,7 +92,7 @@ function Form() {
   }
 
   if (!lat && !lng) {
-    return <Message message='Start by clicking somewhere in the map' />;
+    return <Message message="Start by clicking somewhere in the map" />;
   }
 
   if (geocodingError) {
@@ -101,13 +101,13 @@ function Form() {
 
   return (
     <form
-      className={`${styles.form} ${isLoading ? styles.loading : ''}`}
+      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
       onSubmit={handleSubmit}
     >
       <div className={styles.row}>
-        <label htmlFor='cityName'>City name</label>
+        <label htmlFor="cityName">City name</label>
         <input
-          id='cityName'
+          id="cityName"
           onChange={(e) => setCityName(e.target.value)}
           value={cityName}
         />
@@ -115,26 +115,26 @@ function Form() {
       </div>
 
       <div className={styles.row}>
-        <label htmlFor='date'>When did you go to {cityName}?</label>
+        <label htmlFor="date">When did you go to {cityName}?</label>
         <DatePicker
-          id='date'
+          id="date"
           onChange={(date) => setDate(date)}
           selected={date}
-          dateFormat={'dd/MM/yyyy'}
+          dateFormat={"dd/MM/yyyy"}
         />
       </div>
 
       <div className={styles.row}>
-        <label htmlFor='notes'>Notes about your trip to {cityName}</label>
+        <label htmlFor="notes">Notes about your trip to {cityName}</label>
         <textarea
-          id='notes'
+          id="notes"
           onChange={(e) => setNotes(e.target.value)}
           value={notes}
         />
       </div>
 
       <div className={styles.buttons}>
-        <Button type='primary'>Add</Button>
+        <Button type="primary">Add</Button>
         <BackButton />
       </div>
     </form>
@@ -142,4 +142,3 @@ function Form() {
 }
 
 export default Form;
-

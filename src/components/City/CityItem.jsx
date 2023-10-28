@@ -1,13 +1,13 @@
-import { Link } from 'react-router-dom';
-import styles from './CityItem.module.css';
-import { useCities } from '../../contexts/CitiesContext';
+import { Link } from "react-router-dom";
+import styles from "./CityItem.module.css";
+import { useCities } from "../../contexts/CitiesContext";
 
 const formatDate = (date) =>
-  new Intl.DateTimeFormat('en', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    weekday: 'long',
+  new Intl.DateTimeFormat("en", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    weekday: "long",
   }).format(new Date(date));
 
 function CityItem({ city }) {
@@ -24,7 +24,7 @@ function CityItem({ city }) {
     <li>
       <Link
         className={`${styles.cityItem} ${
-          id === currentCity.id ? styles['cityItem--active'] : ''
+          id === currentCity.id ? styles["cityItem--active"] : ""
         }`}
         to={`${id}?lat=${lat}&lng=${lng}`}
       >

@@ -1,4 +1,4 @@
-import styles from './CountryItem.module.css';
+import styles from "./CountryItem.module.css";
 
 function CountryItem({ country }) {
   return (
@@ -10,4 +10,3 @@ function CountryItem({ country }) {
 }
 
 export default CountryItem;
-

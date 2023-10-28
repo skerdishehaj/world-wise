@@ -47,7 +47,7 @@ function Map() {
       )}
       <MapContainer
         className={styles.map}
-        scrollWheelZoom={true}
+        scrollWheelZoom
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

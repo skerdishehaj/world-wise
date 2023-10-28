@@ -95,7 +95,7 @@ const CitiesProvider = ({ children }) => {
   // ! Get a single city
   const getCity = useCallback(
     async (id) => {
-      if (+id === currentCity.id) return;
+      if (Number(id) === currentCity.id) return;
       dispatch({ type: "loading" });
       try {
         const response = await fetch(`${BASE_URL}/cities/${id}`);

@@ -17,7 +17,7 @@ function CityItem({ city }) {
 
   const handleDeleteButtonClick = (e) => {
     e.preventDefault();
-    deleteCity(+e.target.id);
+    deleteCity(Number(e.target.id));
   };
 
   return (
